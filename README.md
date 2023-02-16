@@ -1,3 +1,13 @@
+----
+
+Fixed image completion not working issue in this fork. 
+
+Only search for assets in current project instead of in all dependent packages.
+
+New version can be found in [release](https://github.com/aJIEw/flutter_asset_literal_idea_plugin/releases), supports IDEA 2022.2 (from 222.3345.108 to 222.4459.24), including Android Studio Flamingo (AI-222).
+
+----
+
 Automatically help you complete the path of assets when you type a Dart string
 ------------------------------------------------------------------------------
 
@@ -17,7 +27,7 @@ Automatically help you complete the path of assets when you type a Dart string
         assets:
           - path/to/assets_directory
           - path/to/image.png
-```    
+```
 
 *   assets in "lib" directory like:
 
@@ -25,7 +35,7 @@ Automatically help you complete the path of assets when you type a Dart string
         assets:
           - image.png
 ```
- 
+
 *   assets declared in pubspec.yaml of other packages.
 
 *   assets in lib/ of other packages and declared in pubspec.yaml of current package like:
@@ -33,7 +43,7 @@ Automatically help you complete the path of assets when you type a Dart string
 ```    
         assets:
           - packages/fancy_images_lib/image.png
-```    
+```
 
 ### Support for fonts
 
@@ -46,7 +56,7 @@ Automatically help you complete the path of assets when you type a Dart string
           - family: Andale Mono
             fonts:
               - asset: fonts/Andale Mono.ttf
-```    
+```
 
 *   iOS pre-installed fonts:
 ```
@@ -132,7 +142,7 @@ Automatically help you complete the path of assets when you type a Dart string
               "Verdana",
               "Zapf Dingbats",
               "Zapfino",
-```    
+```
 
 *   Android pre-installed fonts:
 
@@ -143,7 +153,7 @@ Automatically help you complete the path of assets when you type a Dart string
               "sans-serif-condensed",
               "serif",
               "Droid Sans",
-```              
+```
 
 
 ## Thanks

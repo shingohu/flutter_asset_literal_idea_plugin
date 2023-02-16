@@ -62,12 +62,15 @@ public class CompletionContext {
     public Map<String, CompletionContext> getChildren() {
         if (children == null) {
             children = new HashMap<>();
-            PubspecUtil.findAllDependentPubspecFiles(pubspec).forEach((s, virtualFile) -> {
-                if (virtualFile == null) {
-                    return;
-                }
-                children.put(s, new CompletionContext(virtualFile, getPrefix()));
-            });
+            // PubspecUtil.findAllDependentPubspecFiles(pubspec).forEach((s, virtualFile) -> {
+            //     if (virtualFile == null) {
+            //         return;
+            //     }
+            //     children.put(s, new CompletionContext(virtualFile, getPrefix()));
+            // });
+
+            // TODO: 2023-02-16 Only use current project's pubspec for now, since '.packages' does not exist anymore.
+            children.put(getPackageName(), new CompletionContext(pubspec, getPrefix()));
         }
         return children;
     }
