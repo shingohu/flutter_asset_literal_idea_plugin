@@ -1,1 +1,0 @@
-String test = "san<caret>"

@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.intellij' version '1.9.0'
+    id 'org.jetbrains.intellij' version '1.17.3'
 }
 
 Properties properties = new Properties()
@@ -10,7 +10,7 @@ publishPlugin {
 }
 
 group 'com.ixigua'
-version '1.7.9'
+version '1.8.0'
 
 java {
     sourceCompatibility = JavaVersion.toVersion(javaVersion)
@@ -21,17 +21,14 @@ repositories {
     mavenCentral()
     gradlePluginPortal()
 }
+runIde{
+
+}
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
 }
 
-test {
-    systemProperty "idea.home.path", properties.getProperty('ideDirectory')
-    systemProperty "idea.force.use.core.classloader", "true"
-    useJUnitPlatform()
-}
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
@@ -40,16 +37,12 @@ intellij {
     updateSinceUntilBuild = false
 }
 
-runIde {
-    // Absolute path to installed target v3.5 Android Studio to use as IDE Development Instance
-    // The "Contents" directory is macOS specific.
-    ideDir = new File(properties.getProperty('ideDirectory'))
-}
+
 
 patchPluginXml {
     version = project.version
     sinceBuild = '222.3244.4'
-    untilBuild = '222.*'
+    untilBuild = '231.*'
     changeNotes = """
     <h1>1.7.8</h1>
     <ul>
